@@ -1,6 +1,7 @@
 package com.nishant.demo.StudentServer;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -8,13 +9,12 @@ public class StudentServer {
 
     //1. Store the student (Post)
     @PostMapping("/create")
-    public String storeStudent(){
-        return """
-                id : 1
-                name : Mohit
-                Department : CSE
-                age : 22
-                """;
+    public String storeStudent(@RequestBody Student student) {
+        int id = student.getId();
+        String name = student.getName();
+        int age = student.getAge();
+        String department = student.getDepartment();
+        return "id: " + id + ", name: " + name + ", age: " + age + ", department: " + department;
     }
 
 
