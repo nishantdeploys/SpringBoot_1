@@ -89,6 +89,36 @@ public class MyPortfolio {
                 </html>
                 """;
     }
+    @GetMapping("/myself")
+    public String MySelf() {
+
+        return """
+                <html>
+                <body style="font-family:Arial;padding:40px">
+
+                <h1>Nishant Kumar</h1>
+
+                <h2>Cloud & Spring Boot Enthusiast</h2>
+
+                <p>
+                I'm a B.Tech CSE student at Lovely Professional University.
+                I enjoy building scalable backend systems using Java,
+                Spring Boot, Microservices, Docker and AWS.
+                </p>
+
+                <h3>Profiles</h3>
+
+                <ul>
+                    <li>GitHub : https://github.com/nishantdeploys</li>
+                    <li>LinkedIn : https://linkedin.com/in/nishxnt</li>
+                </ul>
+
+                <a href="/">⬅ Back Home</a>
+
+                </body>
+                </html>
+                """;
+    }
 
 
 
