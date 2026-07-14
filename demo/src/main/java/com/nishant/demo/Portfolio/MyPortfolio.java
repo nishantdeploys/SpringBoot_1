@@ -119,6 +119,35 @@ public class MyPortfolio {
                 </html>
                 """;
     }
+    @GetMapping("/skills")
+    public String Skills() {
+
+        return """
+                <html>
+                <body style="font-family:Arial;padding:40px">
+
+                <h1>My Skills</h1>
+
+                <ul>
+                    <li>Java</li>
+                    <li>Spring Boot</li>
+                    <li>Spring MVC</li>
+                    <li>REST APIs</li>
+                    <li>Microservices</li>
+                    <li>Maven</li>
+                    <li>Docker</li>
+                    <li>Kubernetes</li>
+                    <li>AWS</li>
+                    <li>Git & GitHub</li>
+                    <li>PostgreSQL</li>
+                </ul>
+
+                <a href="/">⬅ Back Home</a>
+
+                </body>
+                </html>
+                """;
+    }
 
 
 
