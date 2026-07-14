@@ -169,12 +169,46 @@ public class MyPortfolio {
                 </html>
                 """;
     }
+    @GetMapping("/pro")
+    public String Project() {
 
+        return """
+                <html>
+                <body style="font-family:Arial;padding:40px">
 
+                <h1>Projects</h1>
 
+                <ol>
 
+                <li>
+                <b>GeoBites</b><br>
+                Microservices-based Restaurant Discovery Platform using Java,
+                Spring Boot and PostgreSQL.
+                </li>
 
+                <br>
 
+                <li>
+                <b>HairSense</b><br>
+                AI Hair Care Assistant deployed on AWS using Docker,
+                GitHub Actions and EC2.
+                </li>
+
+                <br>
+
+                <li>
+                <b>Containerized Portfolio Website</b><br>
+                Portfolio deployed using Docker, Kubernetes and NGINX.
+                </li>
+
+                </ol>
+
+                <a href="/">⬅ Back Home</a>
+
+                </body>
+                </html>
+                """;
+    }
 
 }
 
