@@ -148,7 +148,27 @@ public class MyPortfolio {
                 </html>
                 """;
     }
+    @GetMapping("/edu")
+    public String Education() {
 
+        return """
+                <html>
+                <body style="font-family:Arial;padding:40px">
+
+                <h1>Education</h1>
+
+                <h2>Lovely Professional University</h2>
+
+                <p>B.Tech - Computer Science & Engineering</p>
+
+                <p>Current CGPA : 7.86</p>
+
+                <a href="/">⬅ Back Home</a>
+
+                </body>
+                </html>
+                """;
+    }
 
 
 
