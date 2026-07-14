@@ -15,7 +15,7 @@ public class MyPortfolio {
                     <title>Nishant Portfolio</title>
                     <style>
                         body{
-                            font-family:Arial,sans-serif;
+                            font-family:"Times New Roman",sans-serif;
                             background:#f4f4f4;
                             margin:0;
                         }
@@ -77,9 +77,9 @@ public class MyPortfolio {
 
                     <h1>Welcome to My Portfolio</h1>
 
-                    <p>Hi 👋 I'm Nishant Kumar</p>
+                    <p>Hi 👋 I'm Nishxnt</p>
 
-                    <p>Cloud • DevOps • Java • Spring Boot Enthusiast</p>
+                    <p>CLOUD | DevOps | Java | Spring Boot</p>
 
                     <a class="btn" href="/myself">Know More About Me</a>
 
@@ -94,7 +94,7 @@ public class MyPortfolio {
 
         return """
                 <html>
-                <body style="font-family:Arial;padding:40px">
+                <body style="font-family:"Times New Roman";padding:40px">
 
                 <h1>Nishant Kumar</h1>
 
@@ -124,7 +124,7 @@ public class MyPortfolio {
 
         return """
                 <html>
-                <body style="font-family:Arial;padding:40px">
+                <body style="font-family:"Times New Roman";padding:40px">
 
                 <h1>My Skills</h1>
 
@@ -153,7 +153,7 @@ public class MyPortfolio {
 
         return """
                 <html>
-                <body style="font-family:Arial;padding:40px">
+                <body style="font-family:"Times New Roman";padding:40px">
 
                 <h1>Education</h1>
 
@@ -174,7 +174,7 @@ public class MyPortfolio {
 
         return """
                 <html>
-                <body style="font-family:Arial;padding:40px">
+                <body style="font-family:"Times New Roman";padding:40px">
 
                 <h1>Projects</h1>
 
