@@ -1,5 +1,7 @@
-package com.nishant.demo.StudentServer;
+package com.nishant.demo.StudentServer.Service;
 
+import com.nishant.demo.StudentServer.Entity.Student;
+import com.nishant.demo.StudentServer.Repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,4 +27,9 @@ public class StudentService {
         studentRepository.save(student);
         return student;
     }
+
+    public Student getStudnetById(int id) {
+        return studentRepository.findById(id).orElse(null);
+    }
+
 }
