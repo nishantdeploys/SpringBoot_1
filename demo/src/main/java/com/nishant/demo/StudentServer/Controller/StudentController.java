@@ -1,5 +1,9 @@
 package com.nishant.demo.StudentServer.Controller;
 
+import com.nishant.demo.StudentServer.DTO.CreateStudentRequestDTO;
+import com.nishant.demo.StudentServer.DTO.CreateStudentResponseDTO;
+import com.nishant.demo.StudentServer.DTO.UpdateStudentRequestDTO;
+import com.nishant.demo.StudentServer.DTO.UpdateStudentResponseDTO;
 import com.nishant.demo.StudentServer.Entity.Student;
 import com.nishant.demo.StudentServer.Service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,55 +11,67 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "*")
+@RequestMapping("/api/student")
 public class StudentController {
+
     StudentService studentService;
 
     @Autowired
     public StudentController(StudentService studentService){
-
         this.studentService = studentService;
-
     }
+
+//    @PostMapping("/create")
+//    public ResponseEntity<?> storeStudent(@RequestBody Student student){
+//        Student result = studentService.studentValidator(student);
+//
+//        if(result == null){
+//            return ResponseEntity.status(400).body("Invalid Input. Student data Not created!");
+//        }
+//        return ResponseEntity.status(201).body(result);
+//    }
 
     @PostMapping("/create")
-    public ResponseEntity<?> storeStudent(@RequestBody Student student) {
+    public ResponseEntity<?> storeStudent(@RequestBody CreateStudentRequestDTO student){
+        CreateStudentResponseDTO result = studentService.studentValidator(student);
 
-        Student result = studentService.studentValidate(student);
-
-        if(result == null) ResponseEntity.status(400).body("Invalid Input");
-
+        if(result == null){
+            return ResponseEntity.status(400).body("Invalid Input. Student data Not created!");
+        }
         return ResponseEntity.status(201).body(result);
     }
-    @GetMapping("/get/{id}")
-    public ResponseEntity<?> getStudent(@PathVariable int id) {
-        Student student = studentService.getStudnetById(id);
-        return ResponseEntity.status(200).body(student);
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateStudent(@PathVariable int id, @RequestBody UpdateStudentRequestDTO student){
+        UpdateStudentResponseDTO res = studentService.updateStudentByID(id, student);
+        if(res==null){
+            return ResponseEntity.status(400).body("Invalid data, Updation Failed");
+        }
+        return ResponseEntity.status(200).body(res);
     }
 
-    @PutMapping("/put/{id}")
-    public ResponseEntity<?> updateStudent(@PathVariable int id,
-                                           @RequestBody Student student) {
+    @GetMapping("/get/{id}")
+    public ResponseEntity<?> getStudent(@PathVariable int id){
+        Student res = studentService.getStudentByID(id);
+//        if(res==null){
+//            return ResponseEntity.status(400).body("Invalid ID, User Not Found!");
+//        }
+        return ResponseEntity.status(200).body(res);
 
-        Student updatedStudent = studentService.updateStudent(id, student);
-
-        if (updatedStudent == null) {
-            return ResponseEntity.status(404).body("Student not found");
-        }
-
-        return ResponseEntity.ok(updatedStudent);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteStudent(@PathVariable int id) {
-
-        boolean deleted = studentService.deleteStudentById(id);
-
-        if (!deleted) {
-            return ResponseEntity.status(404).body("Student not found");
+    public ResponseEntity<?> deleteStudent(@PathVariable int id){
+        Student res = studentService.deleteStudentByID(id);
+        if(res==null){
+            return ResponseEntity.status(400).body("Student deletion failed! Check ID and retry.");
         }
 
-        return ResponseEntity.ok("Student deleted successfully");
+        return ResponseEntity.status(200).body(res);
     }
-    
+
+
+
 
 }
